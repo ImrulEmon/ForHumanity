@@ -72,7 +72,7 @@ const Navbar = () => {
             <li className="nav-item active">
               <NavLink className="nav-link" to="/" exact>
                 <i 
-                className="fas fa-tachometer-alt">
+                className="fas fa-home">
                 </i>Home
               </NavLink>
             </li>
@@ -80,7 +80,7 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/donation" exact>
                 <i 
-                className="far fa-address-book">
+                className="fas fa-hand-holding-usd">
                 </i>Donation
               </NavLink> 
             </li>
@@ -88,32 +88,42 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/events" exact>
                 <i 
-                className="far fa-clone">
+                className="fas fa-calendar-alt">
                 </i>Events
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/blog" exact>
                 <i 
-                className="far fa-chart-bar">
+                className="fas fa-scroll">
                 </i>Blog
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink className="nav-link" to="/contact" exact>
                 <i 
-                className="far fa-copy">
+                className="fas fa-address-book">
                 </i>Contact Us
               </NavLink>
             </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/about" exact>
+                <i 
+                className="fas fa-user">
+                </i>About Us
+              </NavLink>
+            </li>
+
             <li>
-              <NavLink to="/register">
-               <button className='btn btn-primary'>Register</button>
+              <NavLink to="/login">
+               <button className='btn btn-primary'>Login</button>
               </NavLink>
             </li>
             <li>
               <NavLink to="/admin">
-               <button className='btn btn-primary'>Admin</button>
+               <button className='btn btn-danger'>Admin</button>
               </NavLink>
             </li>
         </ul>
