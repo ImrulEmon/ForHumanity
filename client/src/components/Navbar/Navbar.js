@@ -44,7 +44,7 @@ const Navbar = () => {
   }, []);
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-mainbg">
-      <NavLink className="navbar-brand navbar-logo" to="/" exact>
+      <NavLink className="navbar-brand navbar-logo" to="/">
         ForHumanity
       </NavLink>
 
@@ -73,36 +73,36 @@ const Navbar = () => {
           </div>
 
           <li className="nav-item active">
-            <NavLink className="nav-link" to="/" exact>
+            <NavLink className="nav-link" to="/">
               <i className="fas fa-home"></i>Home
             </NavLink>
           </li>
 
           <li className="nav-item">
-            <NavLink className="nav-link" to="/donation" exact>
+            <NavLink className="nav-link" to="/donation">
               <i className="fas fa-hand-holding-usd"></i>Donation
             </NavLink>
           </li>
 
           <li className="nav-item">
-            <NavLink className="nav-link" to="/events" exact>
+            <NavLink className="nav-link" to="/events">
               <i className="fas fa-calendar-alt"></i>Events
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/blogs" exact>
+            <NavLink className="nav-link" to="/blogs">
               <i className="fas fa-scroll"></i>Blog
             </NavLink>
           </li>
 
           <li className="nav-item">
-            <NavLink className="nav-link" to="/contact" exact>
+            <NavLink className="nav-link" to="/contact">
               <i className="fas fa-address-book"></i>Contact Us
             </NavLink>
           </li>
 
           <li className="nav-item">
-            <NavLink className="nav-link" to="/about" exact>
+            <NavLink className="nav-link" to="/about">
               <i className="fas fa-user"></i>About Us
             </NavLink>
           </li>

@@ -61,3 +61,11 @@
   .item__body p {
     margin: 0;
   }
+  .animate__animated.animate__fadeIn {
+    --animate-duration: 3s;
+    --animate-delay: 0.9s;
+  }
+  .animate__animated .animate__fadeInLeft{
+    --animate-duration: 3s;
+    --animate-delay: 0.9s;
+  }
