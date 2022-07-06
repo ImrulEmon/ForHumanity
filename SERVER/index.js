@@ -17,7 +17,13 @@ async function run() {
       const database = client.db("forHumanity");
       const activitiesCollection = database.collection("activities");
      
-      console.log('DB connected')
+      // GET API - SHOW EVENTS
+      app.get('/events',async(req,res)=>{
+        const query = {}
+        const cursor = activitiesCollection.find(query);
+        const events=await cursor.toArray();
+        res.send(events);
+      })
 
     } finally {
      // await client.close();
