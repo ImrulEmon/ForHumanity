@@ -2,7 +2,7 @@ import React from "react";
 import "./Event.css";
 
 const Event = (props) => {
-    const {title,img,bgc}=props.event;
+    const {title,img,bgc}=props?.event;
   return (
     <div class="item">
           <a href="#0" aria-labelledby="person3"></a>
