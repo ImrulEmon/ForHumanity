@@ -12,6 +12,10 @@ import Navbar  from './components/Navbar/Navbar';
  import Contact  from './pages/Contact/Contact.js';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import Donation from './pages/Donation/Donation';
+import Events from './pages/Events/Events';
+import Blogs from './pages/Blogs/Blogs';
+import Admin from './pages/Admin/Admin';
 // import Home from './pages/Home/Home';
 
 const App = () => {
@@ -20,19 +24,23 @@ const App = () => {
    <Navbar></Navbar>
     <main>
       <Routes>
-        <Route path='/' element={<Home />}></Route>
-      </Routes>
-      <Routes>
+        <Route exact path='/' element={<Home />}></Route>
+     
+        <Route path='donation' element={<Donation />}></Route>
+
+        <Route path='events' element={<Events/>}></Route>
+
+        <Route path='blogs' element={<Blogs/>}></Route>
+
         <Route path='about' element={<About />}></Route>
-      </Routes>
-      <Routes>
+      
         <Route path='contact' element={<Contact />}></Route>
-      </Routes>
-      <Routes>
+      
         <Route path='login' element={<Login />}></Route>
-      </Routes>
-      <Routes>
+     
         <Route path='register' element={<Register />}></Route>
+
+        <Route path='admin' element={<Admin />}></Route>
       </Routes>
     </main>
    </Router>
