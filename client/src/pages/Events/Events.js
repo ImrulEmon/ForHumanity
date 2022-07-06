@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Event from '../../components/Card/Event';
+import'./Events.css';
 
 const Events = () => {
   const [events,setEvents]=useState([]);
@@ -12,14 +14,12 @@ const Events = () => {
   },[])
   console.log(events);
     return (
-        <div className="container text-center">
-    
-    <h1 className="" style={{paddingTop: "2%"}}>
-      Events
-    </h1>
+      <div className="container">
+      <div class="grid my-5">
     {
-      events.map(e=><h2>{e?.title}</h2>)
+      events.map(event=><Event key={event._id} event={event}></Event>)
     }
+  </div>
   </div>
     );
 };

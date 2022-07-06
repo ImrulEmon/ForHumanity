@@ -17,6 +17,7 @@ import Events from './pages/Events/Events';
 import Blogs from './pages/Blogs/Blogs';
 import Admin from './pages/Admin/Admin';
 import Error404 from './pages/Error404/Error404';
+import Event from './components/Card/Event';
 // import Home from './pages/Home/Home';
 
 const App = () => {
@@ -30,6 +31,8 @@ const App = () => {
         <Route path='donation' element={<Donation />}></Route>
 
         <Route path='events' element={<Events/>}></Route>
+        
+        <Route path='event' element={<Event/>}></Route>
 
         <Route path='blogs' element={<Blogs/>}></Route>
 
