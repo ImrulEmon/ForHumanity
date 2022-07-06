@@ -1,9 +1,10 @@
 import React from 'react'
+import './Home.css';
 const Home = () => {
   return (
-    <div className="container">
+    <div className="text-center home">
     
-    <h1 className="text-center" style={{paddingTop: "30%"}}>
+    <h1 className='fw-bolder' style={{paddingTop: "30%"}}>
       Home
     </h1>
     

@@ -16,6 +16,7 @@ import Donation from './pages/Donation/Donation';
 import Events from './pages/Events/Events';
 import Blogs from './pages/Blogs/Blogs';
 import Admin from './pages/Admin/Admin';
+import Error404 from './pages/Error404/Error404';
 // import Home from './pages/Home/Home';
 
 const App = () => {
@@ -41,6 +42,8 @@ const App = () => {
         <Route path='register' element={<Register />}></Route>
 
         <Route path='admin' element={<Admin />}></Route>
+
+        <Route path='*' element={<Error404 />}></Route>
       </Routes>
     </main>
    </Router>
