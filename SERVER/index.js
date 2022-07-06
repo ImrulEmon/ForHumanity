@@ -24,7 +24,7 @@ async function run() {
         const events=await cursor.toArray();
         res.send(events);
       })
-
+      
     } finally {
      // await client.close();
     }
