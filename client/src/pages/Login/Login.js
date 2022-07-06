@@ -1,8 +1,11 @@
 import React from "react";
 import { Container, Card, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useFirebase from "../../hooks/useFirebase";
 import "./Login.css";
 const Login = () => {
+  const {user,setUser,signInUsingGoogle}=useFirebase({});
+  // console.log(user);
   return (
     <Container
       className="d-flex align-items-center justify-content-center"
@@ -34,7 +37,7 @@ const Login = () => {
           <Link className="link" to="/register">
             Register
           </Link>
-          <Button className="google w-100 my-5 d-flex justify-content-center align-items-center">
+          <Button onClick={signInUsingGoogle} className="google w-100 my-5 d-flex justify-content-center align-items-center">
             <i className="fab fa-google"></i>
             <span className="mx-5">Google</span>
           </Button>

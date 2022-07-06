@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import $ from "jquery";
+import useFirebase from "../../hooks/useFirebase";
 
 const Navbar = () => {
   function animation() {
@@ -41,7 +42,6 @@ const Navbar = () => {
       }, 500);
     });
   }, []);
-
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-mainbg">
       <NavLink className="navbar-brand navbar-logo" to="/" exact>
