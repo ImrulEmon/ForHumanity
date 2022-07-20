@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTabtitle } from '../../hooks/useTabtitle';
 
 const Donation = () => {
+  useTabtitle("Donation")
     return (
         <div className="container">
     

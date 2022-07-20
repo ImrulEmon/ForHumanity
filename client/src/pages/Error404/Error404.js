@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTabtitle } from '../../hooks/useTabtitle';
 
 const Error404 = () => {
+  useTabtitle("Error404")
     return (
         <div className="container">
     

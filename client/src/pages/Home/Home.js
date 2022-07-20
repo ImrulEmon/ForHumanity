@@ -1,6 +1,8 @@
 import React from 'react'
+import { useTabtitle } from '../../hooks/useTabtitle';
 import './Home.css';
 const Home = () => {
+useTabtitle('ForHumanity');
   return (
     <div className="text-center home">
     

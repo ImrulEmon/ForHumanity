@@ -3,7 +3,10 @@ import { Container, Card, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
 import "./Login.css";
+import { useTabtitle } from '../../hooks/useTabtitle';
+
 const Login = () => {
+  useTabtitle("Log In")
   const {user,setUser,signInUsingGoogle}=useFirebase({});
   // console.log(user);
   return (

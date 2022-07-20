@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Event from '../../components/Card/Event';
 import'./Events.css';
+import { useTabtitle } from '../../hooks/useTabtitle';
 
 const Events = () => {
+  useTabtitle("Events");
   const [events,setEvents]=useState([]);
   useEffect(()=>{
     fetch('http://localhost:5000/events')

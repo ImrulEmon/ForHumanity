@@ -2,8 +2,10 @@ import React from "react";
 import { Card, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./Register.css";
+import { useTabtitle } from '../../hooks/useTabtitle';
 
 const Register = () => {
+  useTabtitle("Volunteer Register");
   const {
     register,
     handleSubmit,
