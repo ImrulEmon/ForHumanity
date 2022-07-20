@@ -17,6 +17,7 @@ import Blogs from './pages/Blogs/Blogs';
 import Admin from './pages/Admin/Admin';
 import Error404 from './pages/Error404/Error404';
 import Event from './components/Card/Event';
+import Footer from './components/Footer/Footer';
 // import Home from './pages/Home/Home';
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
         <Route path='*' element={<Error404 />}></Route>
       </Routes>
     </main>
+    <Footer></Footer>
    </Router>
   );
 }
