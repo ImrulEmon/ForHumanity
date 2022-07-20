@@ -1,0 +1,11 @@
+.footer{
+    padding: 20px 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: white;
+    cursor: pointer;
+}

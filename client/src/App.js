@@ -4,6 +4,7 @@ import {
   Route,
  Routes
 } from 'react-router-dom';
+import './custom-style.css';
 
 import Home from './pages/Home/Home';
 import About  from './pages/About/About';
