@@ -1,11 +1,12 @@
 .footer{
     padding: 20px 0;
+    overflow-x: hidden;
 }
-a{
+.fa a{
     text-decoration: none;
     color: white;
 }
-a:hover{
+.fa a:hover{
     color: white;
     cursor: pointer;
 }

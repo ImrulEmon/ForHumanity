@@ -4,7 +4,7 @@ import {
   Route,
  Routes
 } from 'react-router-dom';
-import './custom-style.css';
+// import './custom-style.css';
 
 import Home from './pages/Home/Home';
 import About  from './pages/About/About';
@@ -19,10 +19,12 @@ import Admin from './pages/Admin/Admin';
 import Error404 from './pages/Error404/Error404';
 import Event from './components/Card/Event';
 import Footer from './components/Footer/Footer';
+import AuthProvider from './hooks/AuthProvider';
 // import Home from './pages/Home/Home';
 
 const App = () => {
   return (
+    <AuthProvider>
    <Router>
    <Navbar></Navbar>
     <main>
@@ -49,9 +51,11 @@ const App = () => {
 
         <Route path='*' element={<Error404 />}></Route>
       </Routes>
+      <Footer></Footer>
     </main>
-    <Footer></Footer>
+    
    </Router>
+   </AuthProvider>
   );
 }
 

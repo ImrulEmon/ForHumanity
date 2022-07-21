@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import $ from "jquery";
 import useFirebase from "../../hooks/useFirebase";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   function animation() {
@@ -42,6 +43,11 @@ const Navbar = () => {
       }, 500);
     });
   }, []);
+
+  const { user,logOut } = useAuth();
+
+  console.log(user)
+
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-mainbg">
       <NavLink className="navbar-brand navbar-logo" to="/">
@@ -108,13 +114,26 @@ const Navbar = () => {
           </li>
 
           <li>
-            <NavLink to="/login">
+          {user?.displayName ? (
+                <NavLink to="/">
+                <button onClick={logOut} className="btn btn-danger">
+                  Log Out
+                </button>
+                </NavLink>
+              ) :
+            (<NavLink to="/login">
               <button className="btn btn-primary">Login</button>
-            </NavLink>
+            </NavLink>)}
           </li>
           <li>
             <NavLink to="/admin">
-              <button className="btn btn-danger">Admin</button>
+              <button className="btn btn-info">Admin</button>
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/about">
+              <i className="fas fa-user"></i>{user?.displayName}
             </NavLink>
           </li>
         </ul>

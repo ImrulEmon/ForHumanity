@@ -5,10 +5,10 @@ import "./footer.css";
 const Footer = () => {
   return (
     <div
-      className="row footer px-5"
+      className="container-fluid mx-auto row footer px-5"
       style={{ background: "black", color: "white", textAlign: "left" }}
     >
-      <div className="col-12 col-md-6 col-lg-6 col-xl-6">
+      <div className="fa col-12 col-md-6 col-lg-6 col-xl-6">
         <p>ForHumanity</p>
         <p>
           <NavLink to="/">Home</NavLink>
@@ -20,7 +20,7 @@ const Footer = () => {
           <NavLink to="/events">Events</NavLink>
         </p>
       </div>
-      <div className="col-12 col-md-6 col-lg-6 col-xl-6">
+      <div className="fa col-12 col-md-6 col-lg-6 col-xl-6">
         <p>
           <NavLink to="/blogs">Blogs</NavLink>
         </p>
