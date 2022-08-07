@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTabtitle } from "../../hooks/useTabtitle";
 import { useForm } from "react-hook-form";
 import Form from "react-bootstrap/Form";
+import { Container } from "react-bootstrap";
 
 const Contact = () => {
   useTabtitle("Contact");
@@ -21,10 +22,11 @@ const Contact = () => {
   console.log(errors);
 
   return (
-    <div className="container">
-      
-      <div>
-        <h1 className="text-center my-5">Contact Us</h1>
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "75vh" }}
+    >
+      <div className="w-100" style={{ maxWidth: "600px" }}>
         {/* <form onSubmit={handleSubmit(onSubmit)}>
   <input
     type="email"
@@ -57,7 +59,7 @@ const Contact = () => {
           <input className="btn btn-dark" type="submit" />
         </Form>
       </div>
-    </div>
+    </Container>
   );
 };
 export default Contact;

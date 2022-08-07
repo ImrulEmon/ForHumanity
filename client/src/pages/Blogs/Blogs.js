@@ -4,9 +4,10 @@ import { useTabtitle } from '../../hooks/useTabtitle';
 const Blogs = () => {
   useTabtitle("Blogs")
     return (
-        <div className="container">
+      <div className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "75vh" }}>
     
-        <h1 className="text-center" style={{paddingTop: "30%"}}>
+        <h1 className="text-center">
           Blogs
         </h1>
         
