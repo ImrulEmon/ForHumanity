@@ -7,7 +7,7 @@ const Events = () => {
   useTabtitle("Events");
   const [events,setEvents]=useState([]);
   useEffect(()=>{
-    fetch('http://localhost:5000/events')
+    fetch('https://forhumanity-server-main.herokuapp.com/events')
     .then(res=>res.json())
     .then(data=>{
       // console.log(data);
