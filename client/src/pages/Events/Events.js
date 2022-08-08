@@ -1,29 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import Event from '../../components/Card/Event';
-import'./Events.css';
-import { useTabtitle } from '../../hooks/useTabtitle';
+import React, { useEffect, useState } from "react";
+import Event from "../../components/Card/Event";
+import "./Events.css";
+import { useTabtitle } from "../../hooks/useTabtitle";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const Events = () => {
   useTabtitle("Events");
-  const [events,setEvents]=useState([]);
-  useEffect(()=>{
-    fetch('https://forhumanity-server-main.herokuapp.com/events')
-    .then(res=>res.json())
-    .then(data=>{
-      // console.log(data);
-      setEvents(data);
-    })
-  },[])
+  const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  // setIsLoading(true);
+  useEffect(() => {
+    fetch("https://forhumanity-server-main.herokuapp.com/events")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setEvents(data);
+        setIsLoading(false);
+      });
+  }, []);
   console.log(events);
-    return (
-      <div className="container">
+  return (
+    <div className="container" style={{ minHeight: "80vh" }}>
       <div class="grid my-5">
-    {
-      events.map(event=><Event key={event._id} event={event}></Event>)
-    }
-  </div>
-  </div>
-    );
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          events.map((event) => <Event key={event._id} event={event}></Event>)
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Events;
