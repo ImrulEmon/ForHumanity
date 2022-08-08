@@ -3,9 +3,9 @@ import { useTabtitle } from '../../hooks/useTabtitle';
 const About = () => {
   useTabtitle("About Us")
   return (
-    <div className="container">
+    <div className="container" style={{minHeight:"75vh"}}>
     
-      <h1 className="text-center" style={{paddingTop: "30%"}}>
+      <h1 className="text-center" style={{paddingTop: "5%"}}>
         About
       </h1>
       

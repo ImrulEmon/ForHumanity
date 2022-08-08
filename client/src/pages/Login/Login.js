@@ -1,14 +1,28 @@
 import React from "react";
 import { Container, Card, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
 import "./Login.css";
 import { useTabtitle } from '../../hooks/useTabtitle';
 
 const Login = () => {
   useTabtitle("Log In")
-  const {user,setUser,signInUsingGoogle}=useFirebase({});
+  const {user,setUser,signInUsingGoogle,setIsLoading}=useFirebase({});
+  const location = useLocation();
+  const navigate = useNavigate();
+  const redirect_uri= location.state?.from || '/admin';
   // console.log(user);
+
+  const handleGoogleLogIn =()=>{
+    signInUsingGoogle()
+    .then((result) => {
+      setUser(result.user);
+      navigate(redirect_uri);
+    })
+    .catch((error) => {
+      console.log(`${error.code} : ${error.messages}`);
+    }).finally(()=>setIsLoading(false));
+  }
   return (
     <Container
       className="d-flex align-items-center justify-content-center"
@@ -40,7 +54,7 @@ const Login = () => {
           <Link className="link" to="/register">
             Register
           </Link>
-          <Button onClick={signInUsingGoogle} className="google w-100 my-5 d-flex justify-content-center align-items-center">
+          <Button onClick={handleGoogleLogIn} className="google w-100 my-5 d-flex justify-content-center align-items-center">
             <i className="fab fa-google"></i>
             <span className="mx-5">Google</span>
           </Button>

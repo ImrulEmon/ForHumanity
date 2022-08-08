@@ -23,13 +23,13 @@ const useFirebase = () => {
 
   const signInUsingGoogle = () => {
     setIsLoading(true);
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        setUser(result.user);
-      })
-      .catch((error) => {
-        console.log(`${error.code} : ${error.messages}`);
-      });
+    return signInWithPopup(auth, googleProvider)
+      // .then((result) => {
+      //   setUser(result.user);
+      // })
+      // .catch((error) => {
+      //   console.log(`${error.code} : ${error.messages}`);
+      // });
   };
 
   useEffect(() => {

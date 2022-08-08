@@ -26,7 +26,11 @@ const Contact = () => {
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "75vh" }}
     >
+      
       <div className="w-100" style={{ maxWidth: "600px" }}>
+      <h1 className="text-center">
+        Contact
+      </h1>
         {/* <form onSubmit={handleSubmit(onSubmit)}>
   <input
     type="email"
