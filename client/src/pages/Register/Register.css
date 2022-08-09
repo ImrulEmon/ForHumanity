@@ -1,3 +1,9 @@
-.register-form input[type=radio]{
-    
+#event{
+    margin: auto auto;
+}
+select{
+    padding:0 10px;
+    height: 38px;
+    border: 1px solid gray;
+    border-radius: 5px;
 }

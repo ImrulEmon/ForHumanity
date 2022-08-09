@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -6,6 +6,15 @@ import "./Register.css";
 import { useTabtitle } from "../../hooks/useTabtitle";
 
 const Register = () => {
+  // =======event name in form==========
+  const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/events")
+      .then((res) => res.json())
+      .then((data) => setTasks(data));
+  }, []);
+  //console.log(tasks);
+  //===============
   useTabtitle("Volunteer Register");
   const {
     register,
@@ -23,7 +32,7 @@ const Register = () => {
       },
       body: JSON.stringify(data),
     }).then((res) => {
-      if (res.status==200) {
+      if (res.status == 200) {
         alert("Added Successfully");
         reset();
       }
@@ -83,7 +92,7 @@ const Register = () => {
                 />
               </Form.Group>
 
-              <Form.Group id="event" className="my-2">
+              {/* <Form.Group id="event" className="my-2">
                 <Form.Label>Event</Form.Label>
                 <Form.Control
                   type="text"
@@ -91,7 +100,19 @@ const Register = () => {
                   {...register("Event", { maxLength: 80 })}
                   required
                 />
+              </Form.Group> */}
+
+              <Form.Group id="event" className="my-2">
+              <Form.Label>Select Event</Form.Label>
+                <select  className="form-select" {...register("Event", { required: true })}>
+                  {tasks.map((task) => (
+                    <option key={task._id} value={task.title}>
+                      {task.title}
+                    </option>
+                  ))}
+                </select>
               </Form.Group>
+
               <input className="btn btn-dark my-3" type="submit" />
             </form>
           </Card.Body>
