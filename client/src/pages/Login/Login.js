@@ -4,10 +4,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
 import "./Login.css";
 import { useTabtitle } from '../../hooks/useTabtitle';
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   useTabtitle("Log In")
-  const {user,setUser,signInUsingGoogle,setIsLoading}=useFirebase({});
+  const {user,setUser,signInUsingGoogle,setIsLoading}=useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const redirect_uri= location.state?.from || '/admin';

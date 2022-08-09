@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import $ from "jquery";
 import useFirebase from "../../hooks/useFirebase";
 import useAuth from "../../hooks/useAuth";
+import {Helmet} from "react-helmet";
 
 const Navbar = () => {
   function animation() {
@@ -47,8 +48,14 @@ const Navbar = () => {
   const { user,logOut } = useAuth();
 
   console.log(user)
+  // ===================
+
+  
+
+  // ===================
 
   return (
+    <>
     <nav className="navbar sticky-top navbar-expand-lg navbar-mainbg">
       <NavLink className="navbar-brand navbar-logo" to="/">
         ForHumanity
@@ -113,6 +120,12 @@ const Navbar = () => {
             </NavLink>
           </li>
 
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/register">
+              <i className="fas fa-thumbtack"></i>Register
+            </NavLink>
+          </li>
+
           <li>
           {user?.displayName ? (
                 <NavLink to="/">
@@ -139,6 +152,7 @@ const Navbar = () => {
         </ul>
       </div>
     </nav>
+    </>
   );
 };
 export default Navbar;
