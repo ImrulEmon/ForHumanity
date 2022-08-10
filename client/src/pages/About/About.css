@@ -1,0 +1,10 @@
+.author{
+    border: 3px solid green;
+    border-radius: 50%;
+    margin: auto auto;
+}
+
+.animate__animated.animate__fadeIn {
+    --animate-duration: 5s;
+    --animate-delay: .5s;
+  }

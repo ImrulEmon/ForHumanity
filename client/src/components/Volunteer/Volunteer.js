@@ -13,9 +13,9 @@ const Volunteer = (props) => {
         <i className="fas fa-times"></i>
       </p>
 
-      <h2 className="volunteer__title">{FullName.toUpperCase()}</h2>
-      <h4 className="info">{Event}</h4>
-      <p className="info">{Date}</p>
+      <h2 className="volunteer__title animate__animated.animate__fadeIn">{FullName.toUpperCase()}</h2>
+      <h4 className="info animate__animated.animate__fadeIn">{Event}</h4>
+      <p className="info animate__animated.animate__fadeIn">{Date}</p>
 
       <p className="volunteer__apply">
         <a className="volunteer__link" href="#">
