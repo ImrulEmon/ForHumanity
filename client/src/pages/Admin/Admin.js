@@ -11,7 +11,7 @@ const Admin = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/volunteer")
+    fetch("http://localhost:5000/member")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -20,15 +20,45 @@ const Admin = () => {
       });
   }, []);
   console.log(volunteers);
+
+  const handleDelete = (id) => {
+    const url = `http://localhost:5000/member/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          const remaining = volunteers.filter(
+            (volunteer) => volunteer._id !== id
+          );
+          setVolunteers(remaining);
+        }
+      });
+  };
+
   return (
     <div className="container" style={{ minHeight: "80vh" }}>
       <h1 className="text-center">Admin</h1>
       <div className="cards my-3">
         {isLoading ? (
           <LoadingSpinner />
+        ) : volunteers.length == 0 ? (
+          <div
+            className="d-flex align-items-center justify-content-center"
+            style={{ minHeight: "75vh" }}
+          >
+            <h1 className="text-center" style={{ color: "gray" }}>
+              No Volunteer Available !!!
+            </h1>
+          </div>
         ) : (
           volunteers.map((volunteer) => (
-            <Volunteer key={volunteer._id} volunteer={volunteer}></Volunteer>
+            <Volunteer
+              key={volunteer._id}
+              volunteer={volunteer}
+              handleDelete={handleDelete}
+            ></Volunteer>
           ))
         )}
       </div>

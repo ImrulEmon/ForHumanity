@@ -72,7 +72,7 @@ const Register = () => {
               <Form.Group id="date" className="my-2">
                 <Form.Label>Date</Form.Label>
                 <Form.Control
-                  type="datetime"
+                  type="date"
                   placeholder="Date"
                   {...register("Date", { maxLength: 100 })}
                   required
@@ -91,16 +91,6 @@ const Register = () => {
                   required
                 />
               </Form.Group>
-
-              {/* <Form.Group id="event" className="my-2">
-                <Form.Label>Event</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Event"
-                  {...register("Event", { maxLength: 80 })}
-                  required
-                />
-              </Form.Group> */}
 
               <Form.Group id="event" className="my-2">
               <Form.Label>Select Event</Form.Label>

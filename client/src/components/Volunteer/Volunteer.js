@@ -1,22 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Volunteer.css";
 
 const Volunteer = (props) => {
-  const { Date, Email, Event, FullName, MobileNumber } = props?.volunteer;
+  const { Date, Email, Event, FullName, MobileNumber, _id } = props?.volunteer;
+
   return (
     <div className="volunteer volunteer-1">
       <div className="volunteer__icon">
         <i className="fas fa-bolt"></i>
       </div>
-      <p className="volunteer__exit">
+      <p className="volunteer__exit" onClick={() => props.handleDelete(_id)}>
         <i className="fas fa-times"></i>
       </p>
-     
-      <h2 className="volunteer__title">
-        {FullName}
-      </h2>
-      <p className="date">{Date}</p>
-      
+
+      <h2 className="volunteer__title">{FullName.toUpperCase()}</h2>
+      <h4 className="info">{Event}</h4>
+      <p className="info">{Date}</p>
 
       <p className="volunteer__apply">
         <a className="volunteer__link" href="#">

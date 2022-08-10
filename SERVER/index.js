@@ -41,13 +41,22 @@ async function run() {
       res.json(result);
     })
 
-    // GET API - ADD VOLUNTEER
-   app.get('/volunteer',async(req,res)=>{
+    // GET API - ADD VOLUNTEER/Member
+   app.get('/member',async(req,res)=>{
       const query = {};
       const cursor = await membersCollection.find(query);
       const members = await cursor.toArray();
       res.send(members);
    })
+
+   // DELETE API Volunteer/Member
+
+   app.delete('/member/:id',async(req,res)=>{
+    const id = req.params.id;
+    const query = {_id:ObjectId(id)};
+    const result = await membersCollection.deleteOne(query);
+    res.json(result);
+  })
 
   } 
   finally {
