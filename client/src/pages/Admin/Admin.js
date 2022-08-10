@@ -39,7 +39,7 @@ const Admin = () => {
 
   return (
     <div className="container" style={{ minHeight: "80vh" }}>
-      <h1 className="text-center">Admin</h1>
+      <h1 className="text-center my-5">Registerd Vlounteers</h1>
       <div className="cards my-3">
         {isLoading ? (
           <LoadingSpinner />

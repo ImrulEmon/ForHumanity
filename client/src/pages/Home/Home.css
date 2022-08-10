@@ -1,8 +1,19 @@
-.home {
+/* .home {
   background-image: url("https://i.ibb.co/ggQsbSJ/Under-Construction.jpg");
   height: fit-content;
   width: 100vw;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+} */
+.banner{
+  width: 50vw;
+  margin: auto auto;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,17rem);
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
 }
