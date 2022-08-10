@@ -11,7 +11,7 @@ const Admin = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/member")
+    fetch("https://forhumanity-server.herokuapp.com/member")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -22,7 +22,7 @@ const Admin = () => {
   console.log(volunteers);
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/member/${id}`;
+    const url = `https://forhumanity-server.herokuapp.com/member/${id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -43,9 +43,9 @@ const Admin = () => {
       <div className="cards my-3">
         {isLoading ? (
           <LoadingSpinner />
-        ) : volunteers.length == 0 ? (
+        ) : volunteers.length === 0 ? (
           <div
-            className="d-flex align-items-center justify-content-center"
+            className="d-flex align-items-center justify-content-center text-center"
             style={{ minHeight: "75vh" }}
           >
             <h1 className="text-center" style={{ color: "gray" }}>

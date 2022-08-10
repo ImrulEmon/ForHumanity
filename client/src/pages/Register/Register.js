@@ -9,7 +9,7 @@ const Register = () => {
   // =======event name in form==========
   const [tasks, setTasks] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/events")
+    fetch("https://forhumanity-server.herokuapp.com/events")
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, []);
@@ -25,7 +25,7 @@ const Register = () => {
 
   const onSubmit = (data) => {
     //console.log(data);
-    fetch("http://localhost:5000/member", {
+    fetch("https://forhumanity-server.herokuapp.com/member", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

@@ -10,7 +10,7 @@ const Events = () => {
   const [isLoading, setIsLoading] = useState(true);
   // setIsLoading(true);
   useEffect(() => {
-    fetch("https://forhumanity-server-main.herokuapp.com/events")
+    fetch("https://forhumanity-server.herokuapp.com/events")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
