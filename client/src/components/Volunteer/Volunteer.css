@@ -1,0 +1,89 @@
+.volunteer {
+    margin: 20px;
+    padding: 20px;
+    width: 500px;
+    min-height: 200px;
+    display: grid;
+    grid-template-rows: 20px 50px 1fr 50px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+  }
+  
+  .volunteer:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+  }
+  
+  .volunteer__link,
+  .volunteer__exit,
+  .volunteer__icon {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .volunteer__link::after {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.5s;
+  }
+  
+  .volunteer__link:hover::after {
+    width: 100%;
+  }
+  
+  .volunteer__exit {
+    grid-row: 1/2;
+    justify-self: end;
+  }
+  
+  .volunteer__icon {
+    grid-row: 2/3;
+    font-size: 30px;
+  }
+  
+  .volunteer__title {
+    grid-row: 3/4;
+    font-weight: 400;
+    color: #ffffff;
+  }
+  
+  .date{
+    font-weight: 400;
+    color: #ffffff;
+  }
+  .volunteer__apply {
+    grid-row: 4/5;
+    align-self: center;
+  }
+  
+  /* volunteer BACKGROUNDS */
+  
+  .volunteer-1 {
+    background: radial-gradient(#1fe4f5, #3fbafe);
+  }
+  
+  .volunteer-2 {
+    background: radial-gradient(#fbc1cc, #fa99b2);
+  }
+  
+  .volunteer-3 {
+    background: radial-gradient(#76b2fe, #b69efe);
+  }
+  
+  .volunteer-4 {
+    background: radial-gradient(#60efbc, #58d5c9);
+  }
+  
+  .volunteer-5 {
+    background: radial-gradient(#f588d8, #c0a3e5);
+  }
+  
+  
+  
