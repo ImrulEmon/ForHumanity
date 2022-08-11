@@ -6,9 +6,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 } */
-.banner{
-  width: 50vw;
-  margin: auto auto;
+*{
+  overflow-x: hidden;
 }
 .grid {
   display: grid;

@@ -11,7 +11,7 @@ const Login = () => {
   const {user,setUser,signInUsingGoogle,setIsLoading}=useAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const redirect_uri= location.state?.from || '/admin';
+  const redirect_uri= location.state?.from || '/register';
   // console.log(user);
 
   const handleGoogleLogIn =()=>{
@@ -45,7 +45,7 @@ const Login = () => {
               </Form.Group>
 
               <Button className="w-100 my-4" type="submit">
-                Sign Up
+                Log In
               </Button>
             </Form>
           </Card.Body>

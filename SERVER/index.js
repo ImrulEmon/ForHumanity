@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const { MongoClient, ServerApiVersion } = require("mongodb");
-const ObjectId = require('mongodb').ObjectId;
+const ObjectId = require("mongodb").ObjectId;
 const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5000;
@@ -22,7 +22,7 @@ async function run() {
 
     const database = client.db("forHumanity");
     const activitiesCollection = database.collection("activities");
-    const membersCollection = database.collection('member');
+    const membersCollection = database.collection("member");
 
     // GET API - SHOW EVENTS
     app.get("/events", async (req, res) => {
@@ -33,33 +33,28 @@ async function run() {
     });
 
     // POST API - ADD VOLUNTEER
-    app.post("/member",async(req,res)=>{
+    app.post("/member", async (req, res) => {
       const member = req.body;
-      //console.log(service);
       const result = await membersCollection.insertOne(member);
-      //console.log(result);
       res.json(result);
-    })
+    });
 
-    // GET API - ADD VOLUNTEER/Member
-   app.get('/member',async(req,res)=>{
+    // GET API -VOLUNTEER/Member
+    app.get("/member", async (req, res) => {
       const query = {};
-      const cursor = await membersCollection.find(query);
+      const cursor = membersCollection.find(query);
       const members = await cursor.toArray();
       res.send(members);
-   })
+    });
 
-   // DELETE API Volunteer/Member
-
-   app.delete('/member/:id',async(req,res)=>{
-    const id = req.params.id;
-    const query = {_id:ObjectId(id)};
-    const result = await membersCollection.deleteOne(query);
-    res.json(result);
-  })
-
-  } 
-  finally {
+    // DELETE API Volunteer/Member
+    app.delete("/member/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const result = await membersCollection.deleteOne(query);
+      res.json(result);
+    });
+  } finally {
     //await client.close();
   }
 }

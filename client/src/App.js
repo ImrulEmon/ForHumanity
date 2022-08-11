@@ -17,6 +17,7 @@ import Event from "./components/Card/Event";
 import Footer from "./components/Footer/Footer";
 import AuthProvider from "./hooks/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import User from "./pages/User/User";
 // import Home from './pages/Home/Home';
 
 const App = () => {
@@ -47,6 +48,15 @@ const App = () => {
             <Route path="contact" element={<Contact />}></Route>
 
             <Route path="login" element={<Login />}></Route>
+
+            <Route
+              path="user"
+              element={
+                <PrivateRoute>
+                  <User />
+                </PrivateRoute>
+              }
+            ></Route>
 
             <Route
               path="register"

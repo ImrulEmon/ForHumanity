@@ -1,4 +1,5 @@
 import React from "react";
+import Banner from "../../components/Banner/Banner";
 import Event from "../../components/Card/Event";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import useEvents from "../../hooks/useEvents";
@@ -10,15 +11,12 @@ const Home = () => {
   const [events,isLoading]=useEvents();
   const featureEvents = events.slice(0,4)
   return (
+    <>
+    <Banner />
     <div
       className="text-center home container-fluid"
-      style={{ minHeight: "74vh" }}
+      
     >
-      <img
-        src="https://i.ibb.co/Qmf1ynF/4327424-18827.webp"
-        alt="banner Image"
-        className="banner"
-      />
       <h1>Recent Events</h1>
       <div className="grid my-4">
         
@@ -29,6 +27,7 @@ const Home = () => {
       }
       </div>
     </div>
+    </>
   );
 };
 export default Home;

@@ -145,7 +145,7 @@ const Navbar = () => {
           </li>
 
           <li className="nav-item">
-            <NavLink className="nav-link" to="/about">
+            <NavLink className="nav-link" to="/user">
               <i className="fas fa-user"></i>{user?.displayName}
             </NavLink>
           </li>

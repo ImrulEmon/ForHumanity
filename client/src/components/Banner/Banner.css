@@ -1,0 +1,27 @@
+.banner-section{
+    background-color: #293233;
+  }
+  .banner{
+    width: 70vw;
+    margin: auto auto;
+  }
+
+  /* SMARTPHONES PORTRAIT */
+@media only screen and (min-width: 300px) {
+    .banner-section{
+        background-color: #293233;
+        
+      }
+      .banner{
+        height: 60vh;
+        width: 100vw;
+      }
+
+}
+
+/* SMARTPHONES LANDSCAPE */
+@media only screen and (min-width: 480px) {
+
+
+}
+
