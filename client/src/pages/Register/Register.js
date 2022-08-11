@@ -4,10 +4,12 @@ import { Card, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./Register.css";
 import { useTabtitle } from "../../hooks/useTabtitle";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
   // =======event name in form==========
   const [tasks, setTasks] = useState([]);
+  const {user}=useAuth({});
   useEffect(() => {
     fetch("https://forhumanity-server.herokuapp.com/events")
       .then((res) => res.json())
@@ -52,6 +54,7 @@ const Register = () => {
               <Form.Group id="firstName" className="my-2">
                 <Form.Label>Full Name</Form.Label>
                 <Form.Control
+                defaultValue={user.displayName}
                   type="text"
                   placeholder="Full Name"
                   {...register("FullName", { maxLength: 80 })}
@@ -101,6 +104,14 @@ const Register = () => {
                     </option>
                   ))}
                 </select>
+              </Form.Group>
+              
+              <Form.Group id="uid">
+                <Form.Control
+                defaultValue={user.uid}
+                  {...register("uid")}
+                 
+                />
               </Form.Group>
 
               <input className="btn btn-dark my-3" type="submit" />

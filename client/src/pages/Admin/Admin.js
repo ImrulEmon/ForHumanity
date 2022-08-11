@@ -19,7 +19,6 @@ const Admin = () => {
         setIsLoading(false);
       });
   }, []);
-  console.log(volunteers);
 
   const handleDelete = (id) => {
     const url = `https://forhumanity-server.herokuapp.com/member/${id}`;

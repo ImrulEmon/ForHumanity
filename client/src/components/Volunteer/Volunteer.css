@@ -41,6 +41,8 @@
   .volunteer__exit {
     grid-row: 1/2;
     justify-self: end;
+    font-size: 30px;
+    height: 200px;
   }
   
   .volunteer__icon {

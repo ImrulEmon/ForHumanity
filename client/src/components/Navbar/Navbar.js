@@ -47,7 +47,7 @@ const Navbar = () => {
 
   const { user,logOut } = useAuth();
 
-  console.log(user)
+  // console.log(user)
   // ===================
 
   

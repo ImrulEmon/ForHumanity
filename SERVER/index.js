@@ -3,9 +3,19 @@ const express = require("express");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const ObjectId = require("mongodb").ObjectId;
 const cors = require("cors");
+var admin = require("firebase-admin");
+const { initializeApp } = require("firebase-admin/app");
+
 const app = express();
 const port = process.env.PORT || 5000;
 
+//firebase initialization
+var serviceAccount = require("./.firebase/service-account.json");
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+
+//middleware
 app.use(cors());
 app.use(express.json());
 
@@ -23,6 +33,24 @@ async function run() {
     const database = client.db("forHumanity");
     const activitiesCollection = database.collection("activities");
     const membersCollection = database.collection("member");
+
+    //Verify function
+
+    async function verifyToken(req, res, next) {
+      if (req.headers.authorization?.startsWith("Bearer ")) {
+        idToken = req.headers.authorization.split("Bearer ")[1];
+      }
+      //console.log('inside of verify function',idToken);
+      try {
+        const decodedUser = await admin.auth().verifyIdToken(idToken);
+        req.decodedUserEmail = decodedUser.email;
+        req.decodedUserName = decodedUser.name;
+        req.decodedUserId = decodedUser.user_id;
+        //console.log(decodedUser.name)
+       //console.log(decodedUser.user_id)
+      } catch {}
+      next();
+    }
 
     // GET API - SHOW EVENTS
     app.get("/events", async (req, res) => {
@@ -48,15 +76,31 @@ async function run() {
     });
 
     // GET API -Individual VOLUNTEER/Member
-    app.get("/myevents", async (req, res) => {
-      let query = {};
-      const email =req.query.email;
-      if(email){
-        query={email:email}
+    app.get("/myevents", verifyToken, async (req, res) => {
+      const email = req.query.email;
+      // let query = {};
+      //console.log(email)
+      if (req.decodedUserEmail === email) {
+        const query = { email: email };
+        const cursor = membersCollection.find(query);
+        const members = await cursor.toArray();
+        res.send(members);
       }
-      const cursor = membersCollection.find(query);
-      const members = await cursor.toArray();
-      res.send(members);
+      else if ( req.decodedUserId === email) {
+        const query = { uid: email };
+        const cursor = membersCollection.find(query);
+        const members = await cursor.toArray();
+        res.send(members);
+      }
+      else{
+        res.status(401).json({messsage:"User not authorised!"})
+      }
+      // if (email) {
+      //   query = { email: email };
+      // }
+      // const cursor = membersCollection.find(query);
+      // const members = await cursor.toArray();
+      // res.send(members);
     });
 
     // DELETE API Volunteer/Member
