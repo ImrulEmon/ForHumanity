@@ -58,7 +58,9 @@ const Navbar = () => {
     <>
     <nav className="navbar sticky-top navbar-expand-lg navbar-mainbg">
       <NavLink className="navbar-brand navbar-logo" to="/">
-        ForHumanity
+      <p className="px-5">
+         <img className="fh-logo" src="https://i.ibb.co/fXqh9J0/favicon-fh.png" alt="Logo" />
+        </p>
       </NavLink>
 
       <button

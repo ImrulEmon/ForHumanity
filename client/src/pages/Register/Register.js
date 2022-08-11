@@ -64,7 +64,7 @@ const Register = () => {
                 <Form.Control
                   type="email"
                   placeholder="Email"
-                  {...register("Email", { pattern: /^\S+@\S+$/i })}
+                  {...register("email", { pattern: /^\S+@\S+$/i })}
                   required
                 />
               </Form.Group>

@@ -47,6 +47,18 @@ async function run() {
       res.send(members);
     });
 
+    // GET API -Individual VOLUNTEER/Member
+    app.get("/myevents", async (req, res) => {
+      let query = {};
+      const email =req.query.email;
+      if(email){
+        query={email:email}
+      }
+      const cursor = membersCollection.find(query);
+      const members = await cursor.toArray();
+      res.send(members);
+    });
+
     // DELETE API Volunteer/Member
     app.delete("/member/:id", async (req, res) => {
       const id = req.params.id;

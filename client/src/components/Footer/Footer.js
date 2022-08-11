@@ -8,10 +8,15 @@ const Footer = () => {
       className="container-fluid mx-auto row footer px-5"
       style={{ background: "black", color: "white", textAlign: "left" }}
     >
+      <p>
+          <NavLink to="/"><img className="fh-logo" src="https://i.ibb.co/fXqh9J0/favicon-fh.png" alt="Logo" /></NavLink>
+        </p>
       <div className="fa col-12 col-md-6 col-lg-6 col-xl-6">
-        <p>ForHumanity</p>
         <p>
           <NavLink to="/">Home</NavLink>
+        </p>
+        <p>
+          <NavLink to="/register">Registration</NavLink>
         </p>
         <p>
           <NavLink to="/donation">Donation</NavLink>
@@ -21,6 +26,9 @@ const Footer = () => {
         </p>
       </div>
       <div className="fa col-12 col-md-6 col-lg-6 col-xl-6">
+        <p>
+          <NavLink to="/admin">Volunteers</NavLink>
+        </p>
         <p>
           <NavLink to="/blogs">Blogs</NavLink>
         </p>
