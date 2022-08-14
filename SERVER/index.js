@@ -10,9 +10,14 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //firebase initialization
-var serviceAccount = require("./.firebase/service-account.json");
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+//var serviceAccount = require("./.firebase/service-account.json");
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+// });
+
+const firebaseAdminSdk = require('firebase-admin'),
+    firebaseAdminApp = firebaseAdminSdk.initializeApp({credential: firebaseAdminSdk.credential.cert(
+      JSON.parse(Buffer.from(process.env.GOOGLE_CONFIG_BASE64, 'base64').toString('ascii')))
 });
 
 //middleware
@@ -47,7 +52,7 @@ async function run() {
         req.decodedUserName = decodedUser.name;
         req.decodedUserId = decodedUser.user_id;
         //console.log(decodedUser.name)
-       //console.log(decodedUser.user_id)
+        //console.log(decodedUser.user_id)
       } catch {}
       next();
     }
@@ -85,15 +90,13 @@ async function run() {
         const cursor = membersCollection.find(query);
         const members = await cursor.toArray();
         res.send(members);
-      }
-      else if ( req.decodedUserId === email) {
+      } else if (req.decodedUserId === email) {
         const query = { uid: email };
         const cursor = membersCollection.find(query);
         const members = await cursor.toArray();
         res.send(members);
-      }
-      else{
-        res.status(401).json({messsage:"User not authorised!"})
+      } else {
+        res.status(401).json({ messsage: "User not authorised!" });
       }
       // if (email) {
       //   query = { email: email };

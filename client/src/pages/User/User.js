@@ -13,7 +13,7 @@ const User = () => {
     }
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/myevents?email=${user.email}`,{
+        fetch(`https://forhumanity-server.herokuapp.com/myevents?email=${user.email}`,{
             headers:{
                 'authorization':`Bearer ${localStorage.getItem('idToken')}`
             }
