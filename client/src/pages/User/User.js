@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import useAuth from '../../hooks/useAuth';
 import "./user.css";
 
 const User = () => {
-    const {user,isLoading}=useAuth({});
+    const {user,isLoading,setIsLoading}=useAuth({});
     const [myevents,setMyevents]=useState([]);
+    const [loading,setLoading]=useState(true);
     const navigate = useNavigate();
 
     if(user.email==null){
@@ -28,6 +30,7 @@ const User = () => {
         })
         .then(data=>{
             setMyevents(data)
+            setLoading(false)
         })
     },[])
 //console.log(myevents);
@@ -39,9 +42,21 @@ const User = () => {
         <div className='container-fluid' style={{minHeight:"73vh"}}>
             <img className='user-dp mt-5' src={user?.photoURL} alt="" />
             <h1 className='text-center my-3'>{user?.displayName.toUpperCase()}</h1>
-            {
-                myevents?.map(myevent=><p className='text-center'>{myevent?.FullName} | {myevent?.Event} | {myevent?.email}</p>
-                )
+            { loading?<LoadingSpinner/>:myevents.length === 0 ? (
+          <div
+            className="text-center"
+            style={{ minHeight: "5vh" }}
+          >
+            <h1 className="text-center" style={{ color: "gray" }}>
+              You didn't register to any event! Please Register ! ! !
+            </h1>
+            <Link to='/'> Go to Register </Link>
+          </div>
+        ):(
+                 myevents?.map(myevent=><p className='text-center'>{myevent?.FullName} | {myevent?.Event} | {myevent?.email}</p>
+                 )
+            )
+               
             }
         </div>
     );
