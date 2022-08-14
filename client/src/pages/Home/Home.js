@@ -11,7 +11,7 @@ const Home = () => {
   const [events,isLoading]=useEvents();
   const featureEvents = events.slice(0,4)
   return (
-    <>
+    <div className="home">
     <Banner />
     <div
       className="text-center home container-fluid"
@@ -27,7 +27,7 @@ const Home = () => {
       }
       </div>
     </div>
-    </>
+    </div>
   );
 };
 export default Home;
