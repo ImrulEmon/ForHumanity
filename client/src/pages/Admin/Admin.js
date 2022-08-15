@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import InfoCounter from "../../components/InfoCounter/InfoCounter";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import Volunteer from "../../components/Volunteer/Volunteer";
 import { useTabtitle } from "../../hooks/useTabtitle";
@@ -39,18 +41,15 @@ const Admin = () => {
   return (
     <div className="container" style={{ minHeight: "80vh" }}>
       <h1 className="text-center my-5">Registerd Vlounteers</h1>
+      <InfoCounter volunteers={volunteers}/>
       <div className="cards my-3">
         {isLoading ? (
           <LoadingSpinner />
         ) : volunteers.length === 0 ? (
-          <div
-            className="d-flex align-items-center justify-content-center text-center"
-            style={{ minHeight: "75vh" }}
-          >
-            <h1 className="text-center" style={{ color: "gray" }}>
-              No Volunteer Available !!!
-            </h1>
-          </div>
+            <div className="text-center mx-auto my-5 container-fluid" style={{color:"gray"}}>
+              <h1>No Volunteer Available !!!</h1>
+              <Link to='/register'> Go to Register </Link>
+            </div>
         ) : (
           volunteers.map((volunteer) => (
             <Volunteer

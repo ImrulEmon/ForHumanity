@@ -50,7 +50,7 @@ const User = () => {
             <h1 className="text-center" style={{ color: "gray" }}>
               You didn't register to any event! Please Register ! ! !
             </h1>
-            <Link to='/'> Go to Register </Link>
+            <Link to='/register'> Go to Register </Link>
           </div>
         ):(
                  myevents?.map(myevent=><p className='text-center'>{myevent?.FullName} | {myevent?.Event} | {myevent?.email}</p>
