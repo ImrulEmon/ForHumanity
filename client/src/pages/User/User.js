@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
+import UserCard from '../../components/UserCard/UserCard';
 import useAuth from '../../hooks/useAuth';
 import "./user.css";
 
@@ -33,7 +34,7 @@ const User = () => {
             setLoading(false)
         })
     },[])
-//console.log(myevents);
+console.log(myevents);
     
 //console.log(user?.email);
     
@@ -53,8 +54,12 @@ const User = () => {
             <Link to='/register'> Go to Register </Link>
           </div>
         ):(
-                 myevents?.map(myevent=><p className='text-center'>{myevent?.FullName} | {myevent?.Event} | {myevent?.email}</p>
-                 )
+                 <div className='row container-fluid gy-5 my-5'>
+                    {
+                        myevents?.map(myevent=><UserCard key={myevent._id} myevent={myevent}></UserCard>
+                        )
+                    }
+                 </div>
             )
                
             }
