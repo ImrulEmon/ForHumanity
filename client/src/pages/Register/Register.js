@@ -114,7 +114,7 @@ const Register = () => {
                 />
               </Form.Group>
 
-              <input className="btn btn-dark my-3" type="submit" />
+              <input className="btn btn-dark my-3 w-100" type="submit" />
             </form>
           </Card.Body>
         </Card>

@@ -54,7 +54,7 @@ const User = () => {
   };
 
 
-  console.log(myevents);
+  //console.log(myevents);
 
   //console.log(user?.email);
 
@@ -74,7 +74,7 @@ const User = () => {
       ) : (
         <div className="container">
           <div className="table-responsive-lg">
-          <table class="table table-striped text-center table table-bordered">
+          <table className="table table-striped text-center table table-bordered">
             <thead className="table-dark">
               <tr>
                 <th scope="col">Name</th>

@@ -17,7 +17,7 @@ const Home = () => {
       className="text-center home container-fluid"
       
     >
-      <h1>Recent Events</h1>
+      <h1 className="my-5">Recent Events</h1>
       <div className="grid my-4">
         
       {
@@ -27,6 +27,7 @@ const Home = () => {
       }
       </div>
     </div>
+    
     </div>
   );
 };

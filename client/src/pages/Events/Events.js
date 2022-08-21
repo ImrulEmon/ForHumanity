@@ -18,11 +18,11 @@ const Events = () => {
         setIsLoading(false);
       });
   }, []);
-  console.log(events);
+ // console.log(events);
   return (
     <div className="container mt-3" style={{ minHeight: "80vh" }}>
       <h1 className="text-center">Events</h1>
-      <div class="grid my-5">
+      <div className="grid my-5">
         {isLoading ? (
           <LoadingSpinner />
         ) : (
