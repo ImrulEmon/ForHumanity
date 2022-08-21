@@ -43,8 +43,9 @@ const Register = () => {
   //console.log(errors);
 
   return (
-    <Container style={{ minHeight: "100vh" }}>
-      <div className="w-100 mx-auto my-5" style={{ maxWidth: "400px" }}>
+    <section id="registrationPage">
+      <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+      <div className="w-100 mx-auto py-5" style={{ maxWidth: "400px" }}>
         <Card>
           <Card.Body>
             <legend className="text-center py-4">
@@ -120,6 +121,7 @@ const Register = () => {
         </Card>
       </div>
     </Container>
+    </section>
   );
 };
 

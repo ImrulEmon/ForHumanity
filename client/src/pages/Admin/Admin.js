@@ -40,7 +40,7 @@ const Admin = () => {
   };
 
   return (
-    <div className="" style={{ minHeight: "80vh" }}>
+    <div id="adminPage" className="" style={{ minHeight: "80vh" }}>
       <h1 className="container text-center my-5">Registerd Vlounteers</h1>
       <InfoCounter volunteers={volunteers} />
 

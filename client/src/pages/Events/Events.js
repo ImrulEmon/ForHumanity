@@ -20,9 +20,10 @@ const Events = () => {
   }, []);
  // console.log(events);
   return (
-    <div className="container mt-3" style={{ minHeight: "80vh" }}>
+    <div id="eventsPage" >
+        <div className="container pt-4" style={{ minHeight: "80vh" }}>
       <h1 className="text-center">Events</h1>
-      <div className="grid my-5">
+      <div className="grid py-5">
         {isLoading ? (
           <LoadingSpinner />
         ) : (
@@ -30,6 +31,8 @@ const Events = () => {
         )}
       </div>
     </div>
+    </div>
+    
   );
 };
 

@@ -2,7 +2,9 @@
     font-weight: 550;
     background-color: transparent;
     color: black;
+    border: 2px solid black;
     border-radius: 25px;
+
 }
 
 .google:hover{

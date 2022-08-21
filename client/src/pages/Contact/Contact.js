@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Form from "react-bootstrap/Form";
 import { Container } from "react-bootstrap";
 import Accordion from "../../components/Accordion/Accordion";
+import "./Contact.css";
 
 const Contact = () => {
   useTabtitle("Contact");
@@ -23,42 +24,46 @@ const Contact = () => {
   console.log(errors);
 
   return (
-    <Container
-      className="d-flex align-items-center justify-content-center"
-      style={{ minHeight: "75vh" }}
-    >
-      <div className="w-100" style={{ maxWidth: "600px" }}>
+    <section id="contactPage">
+      <Container
+        className="d-flex align-items-center justify-content-center"
+        style={{ minHeight: "75vh" }}
+      >
+        <div className="w-100" style={{ maxWidth: "600px" }}>
+          <h1 className="text-center">Contact</h1>
 
-      <h1 className="text-center">
-        Contact
-      </h1>
-
-        <div>
-          <Form className="my-5" onSubmit={handleSubmit(onSubmit)}>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Email"
-              {...register("Email", { required: true })}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Feedback</Form.Label>
-            <Form.Control
-              as="textarea"
-              placeholder="Please Give Your Feedback"
-              rows={3}
-              {...register("Feedback", { required: true })}
-            />
-          </Form.Group>
-          <input className="btn btn-dark" type="submit" />
-        </Form>
-        <Accordion></Accordion>
+          <div>
+            <Form className="my-5" onSubmit={handleSubmit(onSubmit)}>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  {...register("Email", { required: true })}
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label>Feedback</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  placeholder="Please Give Your Feedback"
+                  rows={3}
+                  {...register("Feedback", { required: true })}
+                />
+              </Form.Group>
+              <input className="btn btn-dark" type="submit" />
+            </Form>
+            <Accordion></Accordion>
+          </div>
         </div>
-      </div>
-     
-    </Container>
+      </Container>
+    </section>
   );
 };
 export default Contact;

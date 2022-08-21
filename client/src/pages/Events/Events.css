@@ -1,3 +1,7 @@
+#eventsPage{
+  background-image: url('../../assests/bg/outlets.png');
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit,17rem);

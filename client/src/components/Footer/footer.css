@@ -1,6 +1,7 @@
 .footer{
     padding: 20px 0;
     overflow-x: hidden;
+    background-image: url('../../assests/bg/food.png');
 }
 .fa a{
     text-decoration: none;

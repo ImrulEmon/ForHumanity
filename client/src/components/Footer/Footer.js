@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div
       className="container-fluid mx-auto row footer px-5"
-      style={{ background: "black", color: "white", textAlign: "left" }}
+      style={{ backgroundColor: "black", color: "white", textAlign: "left" }}
     >
       <p>
           <NavLink to="/"><img className="fh-logo" src="https://i.ibb.co/fXqh9J0/favicon-fh.png" alt="Logo" /></NavLink>

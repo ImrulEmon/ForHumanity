@@ -1,3 +1,9 @@
+#aboutPage{
+    background-image: url('../../assests/bg/shattered-dark.png');
+    color: white;
+    font-weight: bold;
+}
+
 .author{
     border: 3px solid green;
     border-radius: 50%;
@@ -8,3 +14,4 @@
     --animate-duration: 5s;
     --animate-delay: .5s;
   }
+
