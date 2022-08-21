@@ -36,6 +36,24 @@ const User = () => {
         setLoading(false);
       });
   }, []);
+
+  const handleDelete = (id) => {
+    const url = ` https://forhumanity-server.herokuapp.com/dltmyevent/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          const remaining = myevents.filter(
+            (myevent) => myevent._id !== id
+          );
+          setMyevents(remaining);
+        }
+      });
+  };
+
+
   console.log(myevents);
 
   //console.log(user?.email);
@@ -55,22 +73,25 @@ const User = () => {
         </div>
       ) : (
         <div className="container">
-          <table class="table table-responsive table-striped text-center table table-bordered">
-            <thead>
+          <div className="table-responsive-lg">
+          <table class="table table-striped text-center table table-bordered">
+            <thead className="table-dark">
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Event</th>
                 <th scope="col">Date</th>
                 <th scope="col">Email</th>
                 <th scope="col">Delete</th>
+                <th scope="col">Update</th>
               </tr>
             </thead>
             <tbody>
             {myevents?.map((myevent,index) => (
-              <UserCard index={index} key={myevent._id} myevent={myevent}></UserCard>
+              <UserCard  handleDelete={handleDelete} key={myevent._id} myevent={myevent}></UserCard>
             ))}
             </tbody>
           </table>
+          </div>
         </div>
       )}
     </div>

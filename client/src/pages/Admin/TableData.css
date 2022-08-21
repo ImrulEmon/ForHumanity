@@ -1,0 +1,10 @@
+.admin-table tr{
+    transition: transform .9s ease;
+    overflow-x: hidden;
+}
+.admin-table tr:hover{
+    font-weight: bold;
+    color:white;
+    background-color: black;
+    transform: scale(1.1);
+}
