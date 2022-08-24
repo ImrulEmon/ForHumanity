@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import UserCard from "../../components/UserCard/UserCard";
 import useAuth from "../../hooks/useAuth";
+import avatar from '../../assests/icon/hacker.png';
 import "./user.css";
 
 const User = () => {
@@ -52,6 +53,13 @@ const User = () => {
         }
       });
   };
+  let photo
+  if(user?.photoURL){
+    photo=user?.photoURL
+  }
+  else{
+    photo=avatar
+  }
 
 
   //console.log(myevents);
@@ -60,7 +68,7 @@ const User = () => {
 
   return (
     <div className="container-fluid" style={{ minHeight: "73vh" }}>
-      <img className="user-dp mt-5" src={user?.photoURL} alt="" />
+      <img className="user-dp mt-5" src={photo} alt="" />
       <h1 className="text-center my-3">{user?.displayName.toUpperCase()}</h1>
       {loading ? (
         <LoadingSpinner />

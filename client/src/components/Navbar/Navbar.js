@@ -5,6 +5,8 @@ import $ from "jquery";
 import useFirebase from "../../hooks/useFirebase";
 import useAuth from "../../hooks/useAuth";
 import {Helmet} from "react-helmet";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../Firebase/firebase.init";
 
 const Navbar = () => {
   function animation() {
@@ -46,6 +48,8 @@ const Navbar = () => {
   }, []);
 
   const { user,logOut } = useAuth();
+  const [eUser] = useAuthState(auth);
+  //console.log(eUser);
 
   // console.log(user)
   // ===================

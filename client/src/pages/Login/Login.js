@@ -1,18 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Card, Form, Button } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
 import "./Login.css";
 import { useTabtitle } from "../../hooks/useTabtitle";
 import useAuth from "../../hooks/useAuth";
-
+import {
+  useSignInWithEmailAndPassword
+} from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
+import { auth } from "../../components/Firebase/firebase.init";
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 const Login = () => {
   useTabtitle("Log In");
   const { user, setUser, signInUsingGoogle, setIsLoading } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
   const redirect_uri = location.state?.from || "/register";
   // console.log(user);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const [signInWithEmailAndPassword, eUser, loading, error] =
+  useSignInWithEmailAndPassword(auth);
+
+  useEffect( ()=>{
+    if (eUser) {
+      // console.log(gUser || user);
+      navigate(from, { replace: true });
+    }
+  } ,[eUser,from,navigate])
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  const onSubmit = (data) => {
+    signInWithEmailAndPassword(data.email, data.password);
+  };
 
   const handleGoogleLogIn = () => {
     signInUsingGoogle()
@@ -37,27 +69,26 @@ const Login = () => {
             <p className="text-center text-muted fw-light ">
               Under construction
             </p>
-            <Form>
+            <Form onSubmit={handleSubmit(onSubmit)}>
               <Form.Group id="email" className="my-2">
                 <Form.Label>Email</Form.Label>
-                <Form.Control disabled type="email" required />
+                <Form.Control type="email" required {...register("email")}/>
               </Form.Group>
 
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
-                <Form.Control disabled type="password" required />
+                <Form.Control type="password" required {...register("password")}/>
               </Form.Group>
 
-              <Button className="w-100 my-4" type="submit">
-                Log In
-              </Button>
+              <Form.Control value='Log In' className="w-100 my-4" type="submit"/>
+              
             </Form>
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
-          Already have an account ?{" "}
-          <Link className="link" to="/register">
-            Register
+          New here ?{" "}
+          <Link  className="link" to="/signup">
+            Sign Up
           </Link>
           <button
             style={{ height: "50px" }}

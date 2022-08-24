@@ -13,12 +13,12 @@ const Blogs = () => {
   console.log(errors);
   return (
     <section className="" style={{ minHeight: "75vh" }}>
-      <div className="container-fluid py-5">
+      <div className="container py-5">
         <form className="form-control" onSubmit={handleSubmit(onSubmit)}>
 
-        <label for="name" class="form-label">Your Name</label>
+        <label for="name" className="form-label">Your Name</label>
           <input
-          class="form-control my-3"
+          className="form-control my-3"
           id="name"
             type="text"
             placeholder="Name"
@@ -26,8 +26,8 @@ const Blogs = () => {
             required
           />
 
-        <label for="blog" class="form-label my-3">Write Your Post</label>
-          <textarea class="form-control" id="blog" rows="3" placeholder="Your Post"  {...register("blog")} required/>
+        <label for="blog" className="form-label my-3">Write Your Post</label>
+          <textarea className="form-control" id="blog" rows="3" placeholder="Your Post"  {...register("blog")} required/>
           
 
           <input value="Post" className="my-3 btn btn-dark w-100" type="submit" />
