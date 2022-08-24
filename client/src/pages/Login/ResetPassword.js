@@ -7,6 +7,7 @@ import { auth } from "../../components/Firebase/firebase.init";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { async } from "@firebase/util";
 import { useNavigate } from "react-router-dom";
+import bg from '../../assests/bg/carbon-fibre.png';
 
 const ResetPassword = () => {
   useTabtitle("Reset Password");
@@ -35,18 +36,19 @@ const ResetPassword = () => {
     navigate('/login')
   };
   return (
-    <Container
-      className="d-flex align-items-center justify-content-center"
-      style={{ minHeight: "100vh" }}
+    <div
+    id=""
+      className="d-flex align-items-center justify-content-center container-fluid"
+      style={{ minHeight: "100vh"}}
     >
-      <div className="w-100" style={{ maxWidth: "400px" }}>
-        <Card>
+      <div  className="w-100 shadow-lg" style={{ maxWidth: "400px",borderRadius:'12px' }}>
+        <Card className="effect">
           <Card.Body>
             <h2 className="text-center mb-4">Reset Password</h2>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Form.Group id="email" className="my-2">
                 <Form.Label>Email</Form.Label>
-                <Form.Control className="text-center" placeholder="your email" type="email" required {...register("email")} />
+                <Form.Control className="text-center" placeholder="your registered email" type="email" required {...register("email")} />
               </Form.Group>
 
               <Form.Control
@@ -58,7 +60,7 @@ const ResetPassword = () => {
           </Card.Body>
         </Card>
       </div>
-    </Container>
+    </div>
   );
 };
 

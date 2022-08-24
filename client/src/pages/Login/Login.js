@@ -67,12 +67,13 @@ const Login = () => {
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Form.Group id="email" className="my-2">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" required {...register("email")} />
+                <Form.Control placeholder="Email" type="email" required {...register("email")} />
               </Form.Group>
 
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
+                  placeholder="Password"
                   type="password"
                   required
                   {...register("password")}

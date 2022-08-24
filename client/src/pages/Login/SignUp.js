@@ -41,24 +41,25 @@ const SignUp = () => {
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
     >
-      <div className="w-100" style={{ maxWidth: "400px" }}>
-        <Card>
-          <Card.Body>
+      <div className="w-100 shadow-lg" style={{ maxWidth: "400px" }}>
+        <Card >
+          <Card.Body >
             <h2 className="text-center mb-4">Sign Up</h2>
-            <Form className="form-control" onSubmit={handleSubmit(onSubmit)}>
+            <Form className="form-control shadow-lg" onSubmit={handleSubmit(onSubmit)}>
               <Form.Group id="name" className="my-2">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" required {...register("name")} />
+                <Form.Control placeholder="Full Name" type="text" required {...register("name")} />
               </Form.Group>
 
               <Form.Group id="email" className="my-2">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" required {...register("email")} />
+                <Form.Control placeholder="Go temp-mail.org" type="email" required {...register("email")} />
               </Form.Group>
 
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
+                placeholder="password"
                   type="password"
                   required
                   {...register("password")}

@@ -3,7 +3,12 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import UserCard from "../../components/UserCard/UserCard";
 import useAuth from "../../hooks/useAuth";
-import avatar from '../../assests/icon/hacker.png';
+import avatar1 from "../../assests/avatar/cat.png";
+import avatar2 from "../../assests/avatar/avatar.png";
+import avatar3 from "../../assests/avatar/hacker.png";
+import avatar4 from "../../assests/avatar/man.png";
+import avatar5 from "../../assests/avatar/man.png";
+import avatar6 from "../../assests/avatar/woman.png";
 import "./user.css";
 
 const User = () => {
@@ -46,21 +51,26 @@ const User = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          const remaining = myevents.filter(
-            (myevent) => myevent._id !== id
-          );
+          const remaining = myevents.filter((myevent) => myevent._id !== id);
           setMyevents(remaining);
         }
       });
   };
-  let photo
-  if(user?.photoURL){
-    photo=user?.photoURL
-  }
-  else{
-    photo=avatar
-  }
+  let photo;
+  if (user?.photoURL) {
+    photo = user?.photoURL;
+  } else {
+    function getRandomItem(arr) {
+      // get random index value
+      const randomIndex = Math.floor(Math.random() * arr.length);
+      // get random item
+      const item = arr[randomIndex];
+      return item;
+    }
 
+    const array = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
+    photo = getRandomItem(array);
+  }
 
   //console.log(myevents);
 
@@ -82,23 +92,27 @@ const User = () => {
       ) : (
         <div className="container">
           <div className="table-responsive-lg">
-          <table className="table table-striped text-center table table-bordered">
-            <thead className="table-dark">
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Event</th>
-                <th scope="col">Date</th>
-                <th scope="col">Email</th>
-                <th scope="col">Delete</th>
-                <th scope="col">Update</th>
-              </tr>
-            </thead>
-            <tbody>
-            {myevents?.map((myevent,index) => (
-              <UserCard  handleDelete={handleDelete} key={myevent._id} myevent={myevent}></UserCard>
-            ))}
-            </tbody>
-          </table>
+            <table className="table table-striped text-center table table-bordered">
+              <thead className="table-dark">
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Event</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Delete</th>
+                  <th scope="col">Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                {myevents?.map((myevent, index) => (
+                  <UserCard
+                    handleDelete={handleDelete}
+                    key={myevent._id}
+                    myevent={myevent}
+                  ></UserCard>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       )}
