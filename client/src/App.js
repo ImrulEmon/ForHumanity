@@ -19,6 +19,7 @@ import AuthProvider from "./hooks/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import User from "./pages/User/User";
 import SignUp from "./pages/Login/SignUp";
+import ResetPassword from "./pages/Login/ResetPassword";
 // import Home from './pages/Home/Home';
 
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
 
             <Route path="login" element={<Login />}></Route>
             <Route path="signup" element={<SignUp />}></Route>
+            <Route path="resetPassword" element={<ResetPassword />}></Route>
 
             <Route
               path="user"

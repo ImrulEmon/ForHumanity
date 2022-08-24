@@ -5,12 +5,10 @@ import useFirebase from "../../hooks/useFirebase";
 import "./Login.css";
 import { useTabtitle } from "../../hooks/useTabtitle";
 import useAuth from "../../hooks/useAuth";
-import {
-  useSignInWithEmailAndPassword
-} from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { auth } from "../../components/Firebase/firebase.init";
-import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 const Login = () => {
   useTabtitle("Log In");
   const { user, setUser, signInUsingGoogle, setIsLoading } = useAuth();
@@ -29,14 +27,14 @@ const Login = () => {
   } = useForm();
 
   const [signInWithEmailAndPassword, eUser, loading, error] =
-  useSignInWithEmailAndPassword(auth);
+    useSignInWithEmailAndPassword(auth);
 
-  useEffect( ()=>{
+  useEffect(() => {
     if (eUser) {
       // console.log(gUser || user);
       navigate(from, { replace: true });
     }
-  } ,[eUser,from,navigate])
+  }, [eUser, from, navigate]);
 
   if (loading) {
     return <LoadingSpinner />;
@@ -66,28 +64,33 @@ const Login = () => {
         <Card>
           <Card.Body>
             <h2 className="text-center mb-4">Log In</h2>
-            <p className="text-center text-muted fw-light ">
-              Under construction
-            </p>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Form.Group id="email" className="my-2">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" required {...register("email")}/>
+                <Form.Control type="email" required {...register("email")} />
               </Form.Group>
 
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" required {...register("password")}/>
+                <Form.Control
+                  type="password"
+                  required
+                  {...register("password")}
+                />
               </Form.Group>
 
-              <Form.Control value='Log In' className="w-100 my-4" type="submit"/>
-              
+              <Form.Control
+                value="Log In"
+                className="w-100 my-4"
+                type="submit"
+              />
             </Form>
+            <span>Forgot password? <Link className="link" to='/resetPassword'>Reset</Link></span>
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
           New here ?{" "}
-          <Link  className="link" to="/signup">
+          <Link className="link" to="/signup">
             Sign Up
           </Link>
           <button
