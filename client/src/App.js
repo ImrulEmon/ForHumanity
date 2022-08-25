@@ -20,6 +20,8 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import User from "./pages/User/User";
 import SignUp from "./pages/Login/SignUp";
 import ResetPassword from "./pages/Login/ResetPassword";
+import Post from "./pages/Blogs/Post";
+import ViewPost from "./pages/Blogs/ViewPost";
 // import Home from './pages/Home/Home';
 
 const App = () => {
@@ -43,8 +45,14 @@ const App = () => {
                 <PrivateRoute>
                   <Blogs />
                 </PrivateRoute>
-              }></Route>
+                
+              }>
+                 <Route index element={<Post />}></Route>
+                 <Route path='post' element={<Post />}></Route>
+                 <Route path='viewPost' element={<ViewPost />}></Route>
+              </Route>
 
+            {/* <Route path="post" element={<Post />}></Route> */}
             <Route path="about" element={<About />}></Route>
 
             <Route path="contact" element={<Contact />}></Route>

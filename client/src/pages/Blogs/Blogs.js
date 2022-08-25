@@ -1,37 +1,58 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { useTabtitle } from "../../hooks/useTabtitle";
+import "./Blog.css";
 
 const Blogs = () => {
+
   useTabtitle("Blogs");
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+
   return (
-    <section className="" style={{ minHeight: "75vh" }}>
-      <div className="container py-5">
-        <form className="form-control" onSubmit={handleSubmit(onSubmit)}>
-
-        <label for="name" className="form-label">Your Name</label>
-          <input
-          className="form-control my-3"
-          id="name"
-            type="text"
-            placeholder="Name"
-            {...register("writer")}
-            required
-          />
-
-        <label for="blog" className="form-label my-3">Write Your Post</label>
-          <textarea className="form-control" id="blog" rows="3" placeholder="Your Post"  {...register("blog")} required/>
-          
-
-          <input value="Post" className="my-3 btn btn-dark w-100" type="submit" />
-        </form>
+    <section id="blog-page"
+      className="py-5 row container-fluid gap-2 mx-auto"
+      style={{ minHeight: "75vh" }}
+    >
+      <div
+      id="side-nav"
+        className="side-bar text-center my-2 col-12 col-md-12 col-lg-2 mx-auto py-4"
+      >
+          {" "}
+          <NavLink
+          className='btn w-75 my-3'
+            to="/blogs/post"
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: '#fff',
+                    background: '#7600dc',
+                  }
+                : { color: '#545e6f', background: '#f0f0f0' }
+            }
+          >
+            Write a post
+          </NavLink>
+        
+        <p>
+          {" "}
+          <NavLink
+          className='btn w-75 my-3'
+            to="/blogs/viewPost"
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: '#fff',
+                    background: '#7600dc',
+                  }
+                : { color: '#545e6f', background: '#f0f0f0' }
+            }
+          >
+            View All posts
+          </NavLink>
+        </p>
+      </div>
+      <div className=" col-12 col-md-12 col-lg-9 mx-auto">
+        <h1 className="text-center">Blogs</h1>
+        <Outlet></Outlet>
       </div>
     </section>
   );

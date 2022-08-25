@@ -15,10 +15,16 @@ const port = process.env.PORT || 5000;
 //   credential: admin.credential.cert(serviceAccount),
 // });
 
-const firebaseAdminSdk = require('firebase-admin'),
-    firebaseAdminApp = firebaseAdminSdk.initializeApp({credential: firebaseAdminSdk.credential.cert(
-      JSON.parse(Buffer.from(process.env.GOOGLE_CONFIG_BASE64, 'base64').toString('ascii')))
-});
+const firebaseAdminSdk = require("firebase-admin"),
+  firebaseAdminApp = firebaseAdminSdk.initializeApp({
+    credential: firebaseAdminSdk.credential.cert(
+      JSON.parse(
+        Buffer.from(process.env.GOOGLE_CONFIG_BASE64, "base64").toString(
+          "ascii"
+        )
+      )
+    ),
+  });
 
 //middleware
 app.use(cors());
@@ -38,6 +44,7 @@ async function run() {
     const database = client.db("forHumanity");
     const activitiesCollection = database.collection("activities");
     const membersCollection = database.collection("member");
+    const blogCollection = database.collection("blogs");
 
     //Verify function
 
@@ -119,6 +126,20 @@ async function run() {
       const query = { _id: ObjectId(id) };
       const result = await membersCollection.deleteOne(query);
       res.json(result);
+    });
+
+    // POST API - ADD BLOG
+    app.post("/blog", async (req, res) => {
+      const post = req.body;
+      const result = await blogCollection.insertOne(post);
+      res.json(result);
+    });
+    // GET API - READ BLOG
+    app.get("/blog", async (req, res) => {
+      const query = {};
+      const cursor = blogCollection.find(query);
+      const members = await cursor.toArray();
+      res.send(members);
     });
   } finally {
     //await client.close();

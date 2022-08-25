@@ -1,0 +1,10 @@
+
+#blog-page{
+    background-image: url('../../assests/bg/cubes.png');
+}
+#side-nav{
+    background-color: rgba(250, 235, 235, 0.459);
+}
+.side-bar a{
+    text-decoration: none;
+}
