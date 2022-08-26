@@ -21,7 +21,7 @@ const Events = () => {
  // console.log(events);
   return (
     <div id="eventsPage" >
-        <div className="container pt-4" style={{ minHeight: "80vh" }}>
+        <div className="container pt-4" style={{ minHeight: "100vh" }}>
       <h1 className="text-center">Events</h1>
       <div className="grid py-5">
         {isLoading ? (

@@ -77,7 +77,7 @@ const User = () => {
   //console.log(user?.email);
 
   return (
-    <div className="container-fluid" style={{ minHeight: "73vh" }}>
+    <div className="container-fluid" style={{ minHeight: "100vh" }}>
       <img className="user-dp mt-5" src={photo} alt="" />
       <h1 className="text-center my-3">{user?.displayName.toUpperCase()}</h1>
       {loading ? (

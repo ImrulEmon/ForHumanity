@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useTabtitle } from "../../hooks/useTabtitle";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../components/Firebase/firebase.init";
+import { toast } from 'react-toastify';
 
 const Post = () => {
 
@@ -15,6 +16,7 @@ const Post = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) =>{
+    toast.info('Posting...')
     fetch("https://forhumanity-server.herokuapp.com/blog", {
       method: "POST", // or 'PUT'
       headers: {
@@ -23,43 +25,45 @@ const Post = () => {
       body: JSON.stringify(data),
     }).then((res) => {
       if (res.status == 200) {
-        alert("Added Successfully");
+        toast.success('Successfully Posted')
         reset();
+      }
+      else{
+        toast.error('Something Went Wrong');
       }
     });
   }
-console.log(user)
+// console.log(user)
     return (
-        <section className="" style={{ minHeight: "75vh" }}>
+        <section className="" style={{ minHeight: "75vh",overflow:"hidden" }}>
       <div className="container py-5" style={{maxWidth:"900px"}}>
-        <form className="form-control" onSubmit={handleSubmit(onSubmit)}>
+        <form className="form-control fw-bold " onSubmit={handleSubmit(onSubmit)}>
 
-        <label for="title" className="form-label">Blog Title</label>
+        <label htmlFor="title" className="form-label animate__animated animate__heartBeat">Blog Title</label>
           <input
-          className="form-control my-3"
+          className="form-control my-3 animate__animated animate__pulse"
           id="title"
             type="text"
             placeholder="Title"
             {...register("title")}
             required
           />
-        <label for="name" className="form-label">Your Name</label>
+        <label htmlFor="name" className="form-label animate__animated animate__heartBeat">Your Name</label>
           <input
-          value={user?.displayName.toUpperCase()}
-          className="form-control my-3"
+          className="form-control my-3 animate__animated animate__pulse"
           id="name"
             type="text"
-            placeholder="Name"
+            placeholder={user?.displayName.toUpperCase()}
             {...register("writer")}
             required
-            disabled
+            
           />
 
-        <label for="blog" className="form-label my-3">Write Your Post</label>
-          <textarea className="form-control" id="blog" rows="3" placeholder="Your Post"  {...register("blog")} required style={{minHeight:"200px"}}/>
+        <label htmlFor="blog" className="form-label my-3 animate__animated animate__heartBeat">Write Your Post</label>
+          <textarea className="form-control animate__animated animate__pulse" id="blog" rows="3" placeholder="Your Post"  {...register("blog")} required style={{minHeight:"200px"}}/>
           
 
-          <input value="Post" className="my-3 btn btn-dark w-100" type="submit" />
+          <input value="Post" className="my-3 fw-bold btn btn-dark w-100 post-btn animate__animated animate__pulse" type="submit" />
         </form>
       </div>
     </section>

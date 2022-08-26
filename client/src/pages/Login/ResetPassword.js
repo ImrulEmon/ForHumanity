@@ -8,6 +8,7 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { async } from "@firebase/util";
 import { useNavigate } from "react-router-dom";
 import bg from '../../assests/bg/carbon-fibre.png';
+import { toast } from "react-toastify";
 
 const ResetPassword = () => {
   useTabtitle("Reset Password");
@@ -17,6 +18,9 @@ const ResetPassword = () => {
   const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
     auth
   );
+  if(error){
+    toast.error('Something Went Wrong')
+  }
 
   if (sending) {
     <div style={{minHeight:"100vh"}}>
@@ -32,7 +36,7 @@ const ResetPassword = () => {
 
   const onSubmit = async(data) => {
     await sendPasswordResetEmail(data.email);
-    alert(`Email sent.Check Inbox of ${data.email}`);
+    toast.success(`Email sent.Check Inbox of ${data.email}`);
     navigate('/login')
   };
   return (

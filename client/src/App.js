@@ -22,6 +22,9 @@ import SignUp from "./pages/Login/SignUp";
 import ResetPassword from "./pages/Login/ResetPassword";
 import Post from "./pages/Blogs/Post";
 import ViewPost from "./pages/Blogs/ViewPost";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 // import Home from './pages/Home/Home';
 
 const App = () => {
@@ -91,8 +94,10 @@ const App = () => {
             <Route path="*" element={<Error404 />}></Route>
           </Routes>
           <Footer></Footer>
+          
         </main>
       </Router>
+      <ToastContainer />
     </AuthProvider>
   );
 };

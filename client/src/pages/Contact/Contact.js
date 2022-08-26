@@ -25,15 +25,16 @@ const Contact = () => {
 
   return (
     <section id="contactPage">
+       <h1 className="text-center py-3">Contact</h1>
       <Container
-        className="d-flex align-items-center justify-content-center"
+        className="d--block d-lg-flex align-items-center justify-content-center gap-4"
         style={{ minHeight: "75vh" }}
       >
         <div className="w-100" style={{ maxWidth: "600px" }}>
-          <h1 className="text-center">Contact</h1>
+         
 
           <div>
-            <Form className="my-5" onSubmit={handleSubmit(onSubmit)}>
+            <Form className="" onSubmit={handleSubmit(onSubmit)}>
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
@@ -55,13 +56,16 @@ const Contact = () => {
                   placeholder="Please Give Your Feedback"
                   rows={3}
                   {...register("Feedback", { required: true })}
+                  style={{minHeight:"250px"}}
                 />
               </Form.Group>
-              <input className="btn btn-dark" type="submit" />
+              <input className="btn btn-dark w-25 d-block mx-auto" type="submit"/>
             </Form>
-            <Accordion></Accordion>
+           
           </div>
         </div>
+
+        <Accordion></Accordion>
       </Container>
     </section>
   );

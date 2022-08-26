@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import "./Register.css";
 import { useTabtitle } from "../../hooks/useTabtitle";
 import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Register = () => {
   // =======event name in form==========
@@ -35,7 +36,7 @@ const Register = () => {
       body: JSON.stringify(data),
     }).then((res) => {
       if (res.status == 200) {
-        alert("Added Successfully");
+        toast.success("Added Successfully");
         reset();
       }
     });

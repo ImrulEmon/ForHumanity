@@ -8,3 +8,7 @@
 .side-bar a{
     text-decoration: none;
 }
+.post-btn:hover{
+    background-color: transparent;
+    color: black;
+}
